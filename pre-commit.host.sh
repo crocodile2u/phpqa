@@ -6,4 +6,4 @@ REPO_ROOT=`pwd`
 # -r : root, relative path to folder where the actual PHP files reside, i. e., "src"
 # -f : fix, whether to fix code-style problems with PHPCBF, automatically
 
-docker run -v "$REPO_ROOT:/project" -w /project crocodile2u/phpqa pre-commit.sh -r x -f 1
+docker run -v "$REPO_ROOT:/project" -w /project crocodile2u/phpqa pre-commit.sh -f 1
