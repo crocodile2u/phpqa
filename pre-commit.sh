@@ -2,12 +2,12 @@
 
 fixes_with_phpcbf=0
 
-while getopts "r:" opt; do
+while getopts "fr:" opt; do
     case "$opt" in
     "r")  echo "All paths relative to $OPTARG"
         cd $OPTARG
         ;;
-    "f")  fixes_with_phpcbf=$OPTARG
+    "f")  fixes_with_phpcbf=1
         ;;
     esac
 done
@@ -34,7 +34,7 @@ fi
 
 echo $existing_files | xargs phpcs
 if [ "$?" -ne "0" ]; then
-    if [ "$fixes_with_phpcbf" -eq "0" ]; then
+    if [ "$fixes_with_phpcbf" -eq "1" ]; then
         echo "Applying automatic formatting fixes with PHPCBF..."
         echo $existing_files | xargs phpcbf
     fi
